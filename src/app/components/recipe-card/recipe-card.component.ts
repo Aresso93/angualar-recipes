@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import { Recipe } from 'src/app/model/recipe';
 import { RouterModule } from '@angular/router';
 import { CategoryToStringPipe } from 'src/app/pipes/category-to-string.pipe';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-recipe-card',
@@ -16,7 +17,8 @@ import { CategoryToStringPipe } from 'src/app/pipes/category-to-string.pipe';
 export class RecipeCardComponent{
 
 @Input() recipe?: Recipe
-
+@Input() isFavourite: boolean = false;
+constructor(public storage:StorageService ){}
 
 
 }

@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,

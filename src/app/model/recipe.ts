@@ -6,4 +6,5 @@ export interface Recipe {
   url: string
   category: number
   id?: string
+  isFavourite?: boolean;
 }

@@ -44,8 +44,6 @@ export class StorageService {
     console.log('TATSUMAKI SENPUKYAKU');
     return this.favouritesSubject.value.some(r => r.id === recipe.id)
 
-
-
   }
 
 }

@@ -1,6 +1,10 @@
-<form>
-  <label for="name">name:</label>
+<form class="input-container">
+  <label for="name">Name:</label>
   <input [(ngModel)]="newRecipe.name" type="text" name="name">
+  <label for="category">Category:</label>
+  <input [(ngModel)]="newRecipe.category" type="text" name="category">
+  <label for="url">You may add the URL to a picture:</label>
+  <input [(ngModel)]="newRecipe.url" type="text" name="category">
 </form>
 
-<button (click)="submitRecipe()">invia la ricetta</button>
+<button (click)="submitRecipe()">Submit the recipe</button>

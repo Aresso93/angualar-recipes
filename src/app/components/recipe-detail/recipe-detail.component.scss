@@ -1,0 +1,19 @@
+.detail-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-image{
+  max-height: 60vh;
+  object-fit: cover;
+}
+
+.detail-name{
+  font-weight: bold;
+  font-size: 5vw;
+}
+
+.detail-text{
+  font-size: x-large;
+}

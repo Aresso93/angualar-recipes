@@ -8,9 +8,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

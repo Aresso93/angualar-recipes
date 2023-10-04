@@ -1,7 +1,7 @@
-<ul *ngIf="favourites">
-    <li *ngFor="let recipe of favourites">
+<div class="favourite-container" *ngIf="favourites">
+    <div *ngFor="let recipe of favourites">
 
     <app-recipe-card [recipe]="recipe" [isFavourite]="true" ></app-recipe-card>
 
-    </li>
-  </ul>
+    </div>
+  </div>

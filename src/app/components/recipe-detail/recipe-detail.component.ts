@@ -23,8 +23,12 @@ export class RecipeDetailComponent implements OnInit {
 
   recipe?: Recipe;
 
-  constructor(private dataServ: DataService, private route: ActivatedRoute){}
+  constructor(private dataServ: DataService, private route: ActivatedRoute){
+    
+    this.dataServ.hideSelect = true
+  }
 
+  
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('sticazzi')
@@ -42,5 +46,7 @@ export class RecipeDetailComponent implements OnInit {
     })
     }
   }
+
+  
 
 }

@@ -46,4 +46,6 @@ export class DataService {
 
   }
 
+  hideSelect: boolean = false;
+
 }

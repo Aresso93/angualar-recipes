@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -10,6 +10,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { RecipeCardComponent } from "../recipe-card/recipe-card.component";
 import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -25,12 +26,12 @@ import { DataService } from 'src/app/services/data.service';
         MatSelectModule,
         MatFormFieldModule,
         MatGridListModule,
-        RecipeCardComponent
+        RecipeCardComponent,
     ]
 })
-export class HeaderComponent {
-  constructor(public storage:StorageService, public dataServ: DataService){
+export class HeaderComponent{
+  constructor(public storage:StorageService, public dataServ: DataService, private router: Router){}
+  
 
-  }
 
 }

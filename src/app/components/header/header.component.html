@@ -12,7 +12,7 @@
 <div>
 
 
-  <mat-form-field>
+  <mat-form-field *ngIf="!dataServ.hideSelect">
     <mat-label>Filter by category</mat-label>
     <mat-select [(value)]="dataServ.selectedCategory" (valueChange)="dataServ.categoryChanged()">
       <mat-option value="-1">

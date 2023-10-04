@@ -6,6 +6,26 @@
   </a>
 
   <span>Angular Recipes</span>
+
+
+  <!-- <span>{{dataServ.selectedCategory}}</span> -->
+<div>
+
+
+  <mat-form-field>
+    <mat-label>Filter by category</mat-label>
+    <mat-select [(value)]="dataServ.selectedCategory" (valueChange)="dataServ.categoryChanged()">
+      <mat-option value="-1">
+      Tutti
+      </mat-option>
+     <mat-option value="{{element.value}}" *ngFor="let element of dataServ.categories| keyvalue">
+      {{element.key}}
+     </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
   <span class="spacer"></span>
 
     <button routerLink="/favorites" mat-icon-button>
@@ -16,3 +36,4 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
+

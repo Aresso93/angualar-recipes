@@ -5,22 +5,31 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { StorageService } from 'src/app/services/storage.service';
 import { RouterModule } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { RecipeCardComponent } from "../recipe-card/recipe-card.component";
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    RouterModule
-  ],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    standalone: true,
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatIconModule,
+        MatToolbarModule,
+        RouterModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        RecipeCardComponent
+    ]
 })
 export class HeaderComponent {
-  constructor(public storage:StorageService){
+  constructor(public storage:StorageService, public dataServ: DataService){
 
   }
 

@@ -23,6 +23,7 @@ export class RecipesListComponent implements OnInit{
 
   categories = Object.entries(DishType).slice(Object.entries(DishType).length/2)
   //qui operiamo una manipolazione sull'oggetto perché ci serve soltanto una parte di keys e values, non tutti come invece ci arrivano
+
   constructor(private dataServ: DataService){}
 
   ngOnInit(): void {

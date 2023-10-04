@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  readonly DB_URL = "https://651a7a8d340309952f0d59b1.mockapi.io/recipe"
+  readonly DB_URL = "https://64b512c9f3dbab5a95c6a4ff.mockapi.io/recipes"
 
   constructor(private http: HttpClient) { }
 

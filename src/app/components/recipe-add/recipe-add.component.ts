@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DataService } from 'src/app/services/data.service';
-import { Recipe } from 'src/app/model/recipe';
+import { DishType, Recipe } from 'src/app/model/recipe';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -21,8 +21,9 @@ export class RecipeAddComponent {
     createdAt: 0,
     ingredients: [],
     description: '',
-    category: 0,
-    url: ''
+    category: DishType.antipasto,
+    url: '',
+    rating: 0
   };
 
   constructor(private dataServ: DataService){}

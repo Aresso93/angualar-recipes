@@ -1,13 +1,12 @@
 <mat-card *ngIf="recipe" class="card">
   <span *ngIf="isFavourite">🌟</span>
   <mat-card-header>
-    <div mat-card-avatar class="header-image"></div>
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-subtitle>{{recipe.category | categoryToString}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="{{recipe.url}}" alt="Photo of food">
+  <img class="recipe-img" mat-card-image src="{{recipe.url}}" alt="Photo of food">
   <mat-card-content>
-
+    <mat-icon *appRepeat="recipe.rating">star</mat-icon>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button routerLink="/recipe/{{recipe.id}}">Detail</button>

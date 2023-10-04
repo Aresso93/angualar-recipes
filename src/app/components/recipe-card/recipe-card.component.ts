@@ -8,11 +8,20 @@ import { StorageService } from 'src/app/services/storage.service';
 
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { RepeatDirective } from 'src/app/directives/repeat.directive';
 
 @Component({
   selector: 'app-recipe-card',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, RouterModule, CategoryToStringPipe],
+  imports: [CommonModule,
+            MatButtonModule,
+            MatCardModule,
+            RouterModule,
+            CategoryToStringPipe,
+            MatIconModule,
+            RepeatDirective
+          ],
   templateUrl: './recipe-card.component.html',
   styleUrls: ['./recipe-card.component.scss']
 })

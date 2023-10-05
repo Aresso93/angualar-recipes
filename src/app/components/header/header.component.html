@@ -9,24 +9,25 @@
 
 
   <!-- <span>{{dataServ.selectedCategory}}</span> -->
-<div>
-
-
-  <mat-form-field *ngIf="!dataServ.hideSelect">
-    <mat-label>Filter by category</mat-label>
-    <mat-select [(value)]="dataServ.selectedCategory" (valueChange)="dataServ.categoryChanged()">
-      <mat-option value="-1">
-      Tutti
-      </mat-option>
-     <mat-option value="{{element.value}}" *ngFor="let element of dataServ.categories| keyvalue">
-      {{element.key}}
-     </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-</div>
 
   <span class="spacer"></span>
+
+  <div>
+
+    <mat-form-field *ngIf="!dataServ.hideSelect">
+      <mat-label>Filter by category</mat-label>
+      <mat-select [(value)]="dataServ.selectedCategory" (valueChange)="dataServ.categoryChanged()">
+        <mat-option value="-1">
+        Tutti
+        </mat-option>
+       <mat-option value="{{element[1]}}" *ngFor="let element of categories">
+        {{element[0]}}
+       </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+  </div>
 
     <button routerLink="/favorites" mat-icon-button>
       <mat-icon>favorite</mat-icon>

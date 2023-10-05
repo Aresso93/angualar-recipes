@@ -11,6 +11,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { RecipeCardComponent } from "../recipe-card/recipe-card.component";
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import { DishType } from 'src/app/model/recipe';
 
 @Component({
     selector: 'app-header',
@@ -30,15 +31,18 @@ import { Router } from '@angular/router';
     ]
 })
 export class HeaderComponent{
+
+  categories = Object.entries(DishType).slice(Object.entries(DishType).length/2)
+
+  selectedCategory: string = '-1'
   constructor(public storage:StorageService, public dataServ: DataService, private router: Router){}
-  
 
-<<<<<<< Updated upstream
-=======
-
+  categoryChanged(){
+    const categoryNumber = parseInt(this.selectedCategory)
+    this.dataServ.filterRecipes(categoryNumber);
+  }
 
   }
->>>>>>> Stashed changes
 
 
 

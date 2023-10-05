@@ -9,17 +9,41 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   allRecipes: Recipe[] = []
-  recipes: Recipe[] = []
+  recipes = new BehaviorSubject<Recipe[]>([])
+
+
 
   selectedCategory: string = '-1';
-  categories = Object.entries(DishType).slice(Object.entries(DishType).length/2)
+
+
 
   readonly DB_URL = "https://64b512c9f3dbab5a95c6a4ff.mockapi.io/recipes"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getAllRecipes()
+   }
 
-  getAllRecipes():Observable<Recipe[]>{
-    return this.http.get<Recipe[]>(this.DB_URL);
+  // getAllRecipes():Observable<Recipe[]>{
+  //   return this.http.get<Recipe[]>(this.DB_URL);
+  // }
+
+
+  getAllRecipes():void{
+    this.http.get<Recipe[]>(this.DB_URL).subscribe(recs => {
+      this.recipes.next(recs);
+      this.allRecipes = recs
+    })
+  }
+
+  filterRecipes(category:number){
+    if(category === -1){
+      this.recipes.next(this.allRecipes)
+    } else {
+      const filteredRecipes = this.allRecipes.filter(
+        (recipe) => recipe.category === category
+      )
+      this.recipes.next(filteredRecipes)
+    }
   }
 
   getRecipe(recipeId: string):Observable<Recipe>{
@@ -36,12 +60,13 @@ export class DataService {
 
   categoryChanged(){
     if (this.selectedCategory === '-1') {
-      this.recipes = this.allRecipes;
+      this.recipes.next(this.allRecipes);
     } else {
       const categoryNumber = parseInt(this.selectedCategory)
-      this.recipes = this.allRecipes.filter(recipe => recipe.category === categoryNumber)
+      this.recipes.next(this.allRecipes.filter(recipe => recipe.category === categoryNumber))
     }
-    console.log('CULO');
+    console.log('categoria cambiata');
+    console.log(this.allRecipes);
 
 
   }

@@ -4,13 +4,12 @@ import { DataService } from 'src/app/services/data.service';
 import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
 import { DishType, Recipe } from 'src/app/model/recipe';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatSelectModule} from '@angular/material/select';
-import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @Component({
   selector: 'app-recipes-list',
   standalone: true,
-  imports: [CommonModule, RecipeCardComponent, MatGridListModule, MatSelectModule, MatFormFieldModule],
+  imports: [CommonModule, RecipeCardComponent, MatGridListModule],
   templateUrl: './recipes-list.component.html',
   styleUrls: ['./recipes-list.component.scss']
 })
@@ -27,18 +26,20 @@ export class RecipesListComponent implements OnInit{
   constructor(private dataServ: DataService){}
 
   ngOnInit(): void {
-    this.dataServ.getAllRecipes().subscribe(recs => {
-      this.allRecipes = recs
-      this.recipes = recs
-      console.log(this.recipes)
+    // this.dataServ.getAllRecipes().subscribe(recs => {
+    //   this.allRecipes = recs
+    //   this.recipes = recs
+    //   console.log(this.recipes)
 
-    })
+    // })
 
-    for (const [key, value] of Object.entries(DishType)) {
-      console.log(key);
-      console.log(value);
-      // qui stiamo ciclando il nostro DishType, che è un oggetto abbastanza strano
-    }
+    // for (const [key, value] of Object.entries(DishType)) {
+    //   console.log(key);
+    //   console.log(value);
+    //   // qui stiamo ciclando il nostro DishType, che è un oggetto abbastanza strano
+    // }
+
+    this.dataServ.recipes.subscribe(recs => this.recipes = recs)
 
   }
 

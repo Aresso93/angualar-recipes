@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   allRecipes: Recipe[] = []
-  recipes = new BehaviorSubject<Recipe[]>([])
+  recipes: Recipe[] = []
 
   selectedCategory: string = '-1';
   categories = Object.entries(DishType).slice(Object.entries(DishType).length/2)
@@ -35,12 +35,12 @@ export class DataService {
   }
 
   categoryChanged(){
-    // if (this.selectedCategory === '-1') {
-    //   this.recipes = this.allRecipes;
-    // } else {
-    //   const categoryNumber = parseInt(this.selectedCategory)
-    //   this.recipes = this.allRecipes.filter(recipe => recipe.category === categoryNumber)
-    // }
+    if (this.selectedCategory === '-1') {
+      this.recipes = this.allRecipes;
+    } else {
+      const categoryNumber = parseInt(this.selectedCategory)
+      this.recipes = this.allRecipes.filter(recipe => recipe.category === categoryNumber)
+    }
     console.log('CULO');
 
 

@@ -33,5 +33,12 @@ export class HeaderComponent{
   constructor(public storage:StorageService, public dataServ: DataService, private router: Router){}
   
 
+<<<<<<< Updated upstream
+=======
 
-}
+
+  }
+>>>>>>> Stashed changes
+
+
+
